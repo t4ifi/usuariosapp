@@ -7,13 +7,11 @@ use App\Models\Usuario;
 
 class UsuarioController extends Controller
 {
-    // Mostrar el formulario de registro
     public function formulario()
     {
         return view('formulario_usuario');
     }
 
-    // Registrar un nuevo usuario
     public function registrar(Request $request)
     {
         $usuario = Usuario::create([
@@ -30,7 +28,6 @@ class UsuarioController extends Controller
         ]);
     }
 
-    // Listar todos los usuarios
     public function listar()
     {
         $usuarios = Usuario::all();
@@ -40,7 +37,6 @@ class UsuarioController extends Controller
         ]);
     }
 
-    // Buscar usuarios por atributos
     public function buscar($campo, $valor)
     {
         if (!in_array($campo, ['nombre', 'apellido', 'nickname', 'nacionalidad'])) {
